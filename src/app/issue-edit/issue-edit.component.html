@@ -1,0 +1,28 @@
+<form name="form" [formGroup]="form" novalidate>
+
+  <div class="form-group">
+    <label for="responsible">Title</label>
+    <input type="text" class="form-control" name="title" formControlName="title" required />
+  </div>
+  <div class="form-group">
+    <label for="responsible">Responsible</label>
+    <input type="text" class="form-control" name="responsible" formControlName="responsible" required />
+  </div>
+  <div class="form-group">
+    <label for="severity">Severity</label>
+    <input type="text" class="form-control" name="severity" formControlName="severity" required />
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" name="description" formControlName="description" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="status">Status</label>
+    <select required name="status" formControlName="status">
+      <option value="OPEN">open</option>
+      <option value="CLOSED">closed</option>
+    </select>
+  </div>
+  <button class="btn btn-default" (click)="saveChanges()">Save</button>
+  <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+</form>

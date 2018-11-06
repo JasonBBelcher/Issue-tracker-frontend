@@ -1,0 +1,29 @@
+<h1>Your Issues</h1>
+<div class="row">
+  <div class="col">
+    <button (click)="goToCreate()" class="btn btn-primary">Create Issue</button>
+  </div>
+</div>
+<div class="col-6">
+
+</div>
+<div class="row">
+  <div class="col">
+    <ngb-accordion [closeOthers]="true" activeIds="static-0">
+      <ngb-panel *ngFor=" let issue of issues$ | async; let index = index" id="static-{{index}}" title="{{issue.title}}">
+        <ng-template ngbPanelTitle>
+          <div (dblclick)="goToEdit(issue._id)">
+            <span>Responsible: {{issue.responsible}}</span>
+            <span>Severity: {{issue.severity}}</span>
+            <span>Description: {{truncateDesc(issue.description)}}</span>
+            <span>Status: {{issue.status}}</span>
+            <span (click)="goToEdit(issue._id)" class="btn btn-primary">Edit Issue</span>
+          </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <p>Full Description: {{issue.description}}</p>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+</div>
