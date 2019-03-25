@@ -7,7 +7,7 @@ import { Issue } from '../models/Issue';
 export class IssueService {
   baseUrl: string;
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:3000';
+    this.baseUrl = 'http://localhost:8080';
   }
   // returns all users issues globally
   getAllIssues(): Observable<Issue[]> {
